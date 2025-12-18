@@ -1,3 +1,13 @@
+# Get started with Azure CLI
+
+https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
+
+## Install or run in Azure Cloud Shell
+
+```sh
+az version
+```
+
 ### az account set
 Set a subscription to be the current active subscription
 
