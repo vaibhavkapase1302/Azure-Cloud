@@ -186,5 +186,129 @@ brew install Azure/kubelogin/kubelogin
 > AKS instances are configured with Microsoft Entra ID authentication with Azure RBAC.
 > When daily access is granted, appropriate RBAC roles and permissions allow authenticated users to interact with the cluster using `kubectl`.
 
+
+---
+
+## kubelogin Cheat Sheet (AKS – Microsoft Entra ID)
+
+#### Prerequisites
+
+* Azure CLI installed and logged in (`az login`)
+* `kubelogin` installed
+* `kubectl` installed
+* Network access enabled (e.g., Zscaler VPN if required)
+
+
+#### Core Commands
+
+```bash
+az aks get-credentials \
+  --resource-group ${RESOURCE_GROUP_NAME} \
+  --name ${AKS_INSTANCE_NAME} \
+  --overwrite-existing
+```
+
+**Description:**
+Downloads the AKS cluster credentials and merges them into the local `kubeconfig` file.
+The `--overwrite-existing` flag ensures existing credentials for the cluster are updated.
+
+
+```bash
+kubelogin convert-kubeconfig -l azurecli
+```
+
+**Description:**
+Converts the kubeconfig to use **Microsoft Entra ID authentication** via the Azure CLI login.
+This enables `kubectl` to authenticate using the identity from `az login`.
+
+
+#### Typical Connection Flow (Recommended)
+
+1. Authenticate to Azure:
+
+   ```bash
+   az login
+   ```
+2. Set correct subscription:
+
+   ```bash
+   az account set --subscription <SUBSCRIPTION_ID>
+   ```
+3. Download AKS credentials:
+
+   ```bash
+   az aks get-credentials --resource-group <RG> --name <AKS_NAME>
+   ```
+4. Enable Entra ID authentication:
+
+   ```bash
+   kubelogin convert-kubeconfig -l azurecli
+   ```
+5. Verify access:
+
+   ```bash
+   kubectl get nodes
+   ```
+
+
+#### Authentication Notes
+
+* AKS is configured with **Microsoft Entra ID authentication** and **Azure RBAC**
+* User access is controlled via Azure role assignments (e.g., *AKS Cluster User Role*)
+* `kubelogin` handles token retrieval and renewal
+* `kubectl` alone cannot authenticate to Entra ID–enabled clusters
+
+
+#### Azure Portal Tip
+
+The **Connect** option in the Azure Portal (AKS → Connect) provides:
+
+* Cluster-specific connection commands
+* Authentication method details
+* A reliable reference for first-time setup
+
+
+#### Best Practices
+
+* Always confirm the active subscription before connecting
+* Use `--overwrite-existing` when switching between clusters
+* Keep Azure CLI and kubelogin versions up to date
+* Prefer Entra ID + Azure RBAC for production clusters
+
+
+#### Optional Add-On (Good to Document Later)
+
+```bash
+kubelogin --help
+```
+
+**Purpose:**
+Lists supported login modes (`azurecli`, `devicecode`, `spn`, etc.)
+
+<img width="1598" height="924" alt="image" src="https://github.com/user-attachments/assets/4d9bc3ad-53f5-44b9-a98d-6ca4b4f8a0b4" />
+
+Once authenticated you can proceed to run ```kubectl``` commands:
+
+
+```sh
+PS C:\Users\csiler> az aks get-credentials --resource-group rg-fsc-dev-app-eaus-001 --name aks-fsc-dev-app-eaus-001 --overwrite-existing
+Merged "aks-fsc-dev-app-eaus-001" as current context in C:\Users\csiler\.kube\config
+PS C:\Users\csiler> kubelogin convert-kubeconfig -l azurecli
+PS C:\Users\csiler> kubectl get deployments --all-namespaces=true
+NAMESPACE                      NAME                                          READY   UP-TO-DATE   AVAILABLE   AGE
+account-manager                account-manager                               1/1     1            1           42d
+accounts-management-server     accounts-management-server                    1/1     1            1           46d
+admin-api-service              admin-api-service                             2/2     2            2           40d
+api-service                    api-service                                   2/2     2            2           40d
+asset-identity                 asset-identity                                1/1     1            1           31d
+asset-orchestrator             asset-orchestrator                            1/1     1            1           13d
+asset-query                    asset-query                                   2/2     2            2           26d
+```
+
+Example: kubectl output
+
+<img width="1229" height="215" alt="image" src="https://github.com/user-attachments/assets/c9e30eac-74a7-4a00-bff2-b070e534c003" />
+
+
 ---
 
