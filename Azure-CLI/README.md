@@ -111,13 +111,11 @@ Logs out of the current Azure CLI session.
 
 ## kubelogin – Azure Kubernetes Service Authentication
 
-https://learn.microsoft.com/en-us/azure/aks/kubelogin-authentication?tabs=environment-variables&pivots=device-code
-
-
-### kubelogin – Azure Kubernetes Service Authentication
 
 **Reference:**
 Microsoft Learn – *Use kubelogin to authenticate in Azure Kubernetes Service (AKS)*
+
+https://learn.microsoft.com/en-us/azure/aks/kubelogin-authentication?tabs=environment-variables&pivots=device-code
 
 
 ### What is kubelogin?
