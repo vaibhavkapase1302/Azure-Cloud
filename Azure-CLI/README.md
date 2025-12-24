@@ -1,5 +1,19 @@
 # Get started with Azure CLI
 
+## Installation
+
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+
+### mac
+
+```sh
+brew update && brew install azure-cli
+```
+
+### windows
+
+
+
 https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
 
 ## Install or run in Azure Cloud Shell
