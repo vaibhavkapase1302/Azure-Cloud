@@ -36,7 +36,7 @@ Below is a **clean, structured AWS IAM → Microsoft Entra ID mapping**, with **
 
 ---
 
-# 🔁 AWS IAM → Microsoft Entra ID Mapping (DevOps View)
+## 🔁 AWS IAM → Microsoft Entra ID Mapping (DevOps View)
 
 Microsoft Entra ID
 
@@ -46,8 +46,6 @@ Microsoft Entra ID
 
 ![Image](https://www.zippyops.com/userfiles/media/default/001_15.png)
 
-
-## AWS IAM → Microsoft Entra ID Mapping
 
 ### 1️⃣ Identity System (Root Level)
 
