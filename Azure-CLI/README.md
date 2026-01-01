@@ -24,6 +24,10 @@ https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
 az version
 ```
 
+## official az cli doc
+
+https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
+
 ### az account set
 Set a subscription to be the current active subscription
 
