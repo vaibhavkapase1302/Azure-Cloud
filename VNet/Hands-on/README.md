@@ -8,7 +8,6 @@
 5. [Connecting to VMs](#connecting-to-vms)
 6. [Cost Management](#cost-management)
 7. [AWS to Azure Comparison](#aws-to-azure-comparison)
-8. [Troubleshooting](#troubleshooting)
 
 ---
 
