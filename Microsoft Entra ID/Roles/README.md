@@ -191,6 +191,8 @@ These roles control **Entra ID management operations**, not Azure resources.
 
 ## Service Principals & Managed Identities
 
+https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops
+
 ### What Are They?
 
 **Both are "identities for applications"** - like IAM roles/users for apps instead of humans.
