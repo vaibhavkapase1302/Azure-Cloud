@@ -10,3 +10,8 @@ https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
 e.g.
 
 <img width="1820" height="1156" alt="image" src="https://github.com/user-attachments/assets/1cba14ad-8e91-4543-a31b-7d83b06b9dab" />
+
+
+• It’s always better to assign roles to groups and not individual users
+
+• Easier maintenance
