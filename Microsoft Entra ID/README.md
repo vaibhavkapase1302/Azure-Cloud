@@ -270,6 +270,8 @@ Account      = Subscription
 
 ## Service principals & Managed identities
 
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/886f948f-6a14-46cb-9fd7-e9e02eced04c" />
+
 ### Service principals
 Service principals are Microsoft Entra objects that represent applications within a tenant. They define what an application can do, which resources it can access, and who can use it. Service principals are created automatically when you register an application in Microsoft Entra ID and provide a secure way for applications to authenticate and access resources.
 
@@ -282,6 +284,9 @@ Service principals are Microsoft Entra objects that represent applications withi
 
 
 ### Managed identities
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/0d7c6e68-9538-4454-be8e-899aae66333d" />
+
 
 Managed identities are a special type of service principal that Azure manages automatically. They eliminate the need for developers to manage credentials by providing an automatically managed identity in Microsoft Entra ID for Azure resources.
 
