@@ -267,3 +267,46 @@ Account      = Subscription
 ❌ Ignoring scope hierarchy
 
 ---
+
+## Service principals & Managed identities
+
+### Service principals
+Service principals are Microsoft Entra objects that represent applications within a tenant. They define what an application can do, which resources it can access, and who can use it. Service principals are created automatically when you register an application in Microsoft Entra ID and provide a secure way for applications to authenticate and access resources.
+
+**Key characteristics**
+
+- Are created through application registration in Microsoft Entra ID.
+- Support multitenant scenarios.
+- Require explicit credential management (certificates or client secrets).
+- Are ideal for applications that need to authenticate across different environments.
+
+
+### Managed identities
+
+Managed identities are a special type of service principal that Azure manages automatically. They eliminate the need for developers to manage credentials by providing an automatically managed identity in Microsoft Entra ID for Azure resources.
+
+
+#### Types of managed identities
+
+**System-assigned managed identity:**
+
+- Automatically created and tied to a specific Azure resource.
+- Lifecycle managed by Azure (deleted when the resource is deleted).
+- One-to-one relationship with the Azure resource.
+- Best for applications deployed on a single Azure resource.
+
+
+**User-assigned managed identity:**
+
+- Created as a standalone Azure resource.
+- Can be assigned to multiple Azure resources.
+- Lifecycle managed independently of associated resources.
+- Best for applications that run on multiple resources or need shared identity.
+
+
+**When to use each type:**
+
+- Service principals: Cross-cloud deployments, continuous integration and continuous delivery (CI/CD) pipelines, applications outside Azure.
+- System-assigned managed identities: Single Azure resource applications (Azure Functions, Azure App Service).
+- User-assigned managed identities: Multi-resource applications, shared identity scenarios.
+
